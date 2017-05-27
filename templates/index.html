@@ -2,14 +2,26 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>Hello, World!</title>
+		<title>Stocks</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	</head>
 	<body>
 		<div>
-  			<h1>Hello, World!</h1>
+  			<h1>Stock plotting</h1>
+		  <form action="/input" method="post">
+		  Ticker symbol:
+		  <input type="text" name="ticker">
+		  <br><br>
+		  <input type="checkbox" name="open" value="1">Opening Price</input><br>
+		  <input type="checkbox" name="close" value="1">Closing Price</input><br>
+		  <input type="checkbox" name="adjopen" value="1">Adjusted Opening Price</input><br>
+		  <input type="checkbox" name="adjclose" value="1">Adjusted Closing Price</input><br>
+
+		  <br><br>
+		  <input type="submit" value="Submit">
+		  </form> 
 		</div>
 	</body>
 </html>
