@@ -31,6 +31,7 @@ def make_figure(tag,opening,closing,adjopen,adjclose):
   for strdate in onestock.date:
     stockdate.append(datetime.strptime(strdate,'%Y-%m-%d'))
 
+  output_file('templates/input.html')  
   p1 = figure(width=500,plot_height=500,title="Stock "+tag,x_axis_type="datetime")
   if opening==True:
     p1.line(stockdate,onestock.open,color='blue',legend="Opening Price")
@@ -45,8 +46,8 @@ def make_figure(tag,opening,closing,adjopen,adjclose):
   p1.xaxis.axis_label = "Date"
   p1.yaxis.axis_label = 'Price'
 
-  output_file('templates/input.html')
-  #show(p1)
+  
+  show(p1)
   
 
 @app.route('/input',methods=['POST'])
