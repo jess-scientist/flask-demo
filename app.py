@@ -3,7 +3,7 @@ import requests
 import pandas as pd
 import simplejson as json
 from datetime import datetime
-from bokeh.plotting import figure, show
+from bokeh.plotting import figure, show, output_file
 
 app = Flask(__name__)
 
@@ -45,7 +45,9 @@ def make_figure(tag,opening,closing,adjopen,adjclose):
   p1.xaxis.axis_label = "Date"
   p1.yaxis.axis_label = 'Price'
 
-  return p1
+  output_file('input.html')
+  show(p1)
+  
 
 @app.route('/input',methods=['POST'])
 def read_input():
@@ -59,7 +61,7 @@ def read_input():
     adjopen = True
   if request.form.get('adjclose'):
     adjclose = True
-  plt = make_figure(tag,opening,closing,adjopen,adjclose)
+  make_figure(tag,opening,closing,adjopen,adjclose)
   return tag
 
 
