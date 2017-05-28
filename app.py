@@ -45,8 +45,8 @@ def make_figure(tag,opening,closing,adjopen,adjclose):
   p1.xaxis.axis_label = "Date"
   p1.yaxis.axis_label = 'Price'
 
-  output_file('input.html')
-  show(p1)
+  output_file('templates/input.html')
+  #show(p1)
   
 
 @app.route('/input',methods=['POST'])
@@ -62,7 +62,7 @@ def read_input():
   if request.form.get('adjclose'):
     adjclose = True
   make_figure(tag,opening,closing,adjopen,adjclose)
-  return tag
+  return render_template('input.html')
 
 
 
